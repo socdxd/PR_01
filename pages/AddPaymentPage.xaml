@@ -1,0 +1,90 @@
+<Page x:Class="WPF_Payment_Project.Pages.AddPaymentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Добавление/Редактирование платежа">
+    <Grid>
+        <Grid MaxWidth="480" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,32">
+                <TextBlock Text="Платеж" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Border Grid.Row="1" 
+                    Background="{DynamicResource SurfaceBrush}"
+                    CornerRadius="16"
+                    Padding="40">
+                <StackPanel>
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Название платежа" Margin="0,0,0,8"/>
+                        <TextBox x:Name="txtName" Height="48" PreviewTextInput="txtName_PreviewTextInput"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Сумма" Margin="0,0,0,8"/>
+                        <TextBox x:Name="txtPrice" Height="48" PreviewTextInput="txtPrice_PreviewTextInput" TextChanged="txtPrice_TextChanged" LostFocus="txtPrice_LostFocus"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Количество" Margin="0,0,0,8"/>
+                        <TextBox x:Name="txtNum" Height="48" PreviewTextInput="txtNum_PreviewTextInput" TextChanged="txtNum_TextChanged" LostFocus="txtNum_LostFocus"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Дата" Margin="0,0,0,8"/>
+                        <DatePicker x:Name="dpDate" Height="48"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20" x:Name="lblUser" Visibility="Visible">
+                        <Label Content="Пользователь" Margin="0,0,0,8"/>
+                        <ComboBox x:Name="cmbUser" 
+                                  Height="48"
+                                  SelectedValuePath="ID" 
+                                  SelectedValue="{Binding Path=UserID}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Категория" Margin="0,0,0,8"/>
+                        <ComboBox x:Name="cmbCategory" 
+                                  Height="48"
+                                  SelectedValuePath="ID" 
+                                  SelectedValue="{Binding Path=CategoryID}"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <TextBlock x:Name="txtTotalSum" Text="Итого: 0.00 руб." FontWeight="SemiBold" FontSize="16"/>
+                    </StackPanel>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button x:Name="btnSave" 
+                                Content="Сохранить" 
+                                Grid.Column="0"
+                                Height="48"
+                                Margin="0,0,8,0"
+                                Click="btnSave_Click"/>
+                        <Button x:Name="btnCancel" 
+                                Content="Отмена" 
+                                Grid.Column="1"
+                                Height="48"
+                                Margin="8,0,0,0"
+                                Background="Transparent" 
+                                Foreground="{DynamicResource PrimaryBrush}" 
+                                BorderThickness="0"
+                                Click="btnCancel_Click"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

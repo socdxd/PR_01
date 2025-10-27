@@ -1,0 +1,122 @@
+<Page x:Class="WPF_Payment_Project.Pages.AddUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Добавление/Редактирование пользователя">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid MaxWidth="480" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,0,0,32">
+                    <TextBlock Text="Пользователь" 
+                               FontSize="28" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <Border Grid.Row="1" 
+                        Background="{DynamicResource SurfaceBrush}"
+                        CornerRadius="16"
+                        Padding="40">
+                    <StackPanel>
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Логин" Margin="0,0,0,8"/>
+                            <Grid>
+                                <TextBox x:Name="txtLogin" Height="48" TextChanged="txtLogin_TextChanged" PreviewTextInput="txtLogin_PreviewTextInput"/>
+                                <TextBlock x:Name="lblLoginHint" Text="Введите логин" Foreground="Gray" IsHitTestVisible="False" VerticalAlignment="Center" Margin="12,0,0,0" Visibility="Visible"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel x:Name="passwordPanel" Margin="0,0,0,20">
+                            <Label Content="Пароль" Margin="0,0,0,8"/>
+                            <Grid Margin="0,0,0,4">
+                                <PasswordBox x:Name="txtPassword" Height="48" PasswordChanged="txtPassword_PasswordChanged"/>
+                                <TextBlock x:Name="lblPasswordHint" Text="Введите пароль" Foreground="Gray" IsHitTestVisible="False" VerticalAlignment="Center" Margin="12,0,0,0" Visibility="Visible"/>
+                            </Grid>
+                            <TextBlock x:Name="txtPasswordStrength" FontSize="11" Margin="0,0,0,0" Visibility="Collapsed"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="confirmPasswordPanel" Margin="0,0,0,20">
+                            <Label Content="Подтверждение пароля" Margin="0,0,0,8"/>
+                            <Grid>
+                                <PasswordBox x:Name="txtConfirmPassword" Height="48" PasswordChanged="txtConfirmPassword_PasswordChanged"/>
+                                <TextBlock x:Name="lblConfirmPasswordHint" Text="Повторите пароль" Foreground="Gray" IsHitTestVisible="False" VerticalAlignment="Center" Margin="12,0,0,0" Visibility="Visible"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="ФИО" Margin="0,0,0,8"/>
+                            <Grid>
+                                <TextBox x:Name="txtFIO" Height="48" TextChanged="txtFIO_TextChanged" PreviewTextInput="txtFIO_PreviewTextInput"/>
+                                <TextBlock x:Name="lblFIOHint" Text="Фамилия Имя Отчество" Foreground="Gray" IsHitTestVisible="False" VerticalAlignment="Center" Margin="12,0,0,0" Visibility="Visible"/>
+                            </Grid>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Роль" Margin="0,0,0,8"/>
+                            <ComboBox x:Name="cmbRole" Height="48"/>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,20">
+                            <Label Content="Фотография профиля" Margin="0,0,0,8"/>
+                            <Border Background="{DynamicResource BackgroundBrush}" 
+                                    CornerRadius="8" 
+                                    Height="150" 
+                                    Margin="0,0,0,8">
+                                <Image x:Name="imgPhoto" Stretch="Uniform"/>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button x:Name="btnSelectPhoto" 
+                                        Content="Выбрать фото" 
+                                        Width="140"
+                                        Height="36"
+                                        Margin="4"
+                                        Click="btnSelectPhoto_Click"/>
+                                <Button x:Name="btnRemovePhoto" 
+                                        Content="Удалить фото" 
+                                        Width="140"
+                                        Height="36"
+                                        Margin="4"
+                                        Visibility="Collapsed"
+                                        Click="btnRemovePhoto_Click"/>
+                            </StackPanel>
+                        </StackPanel>
+
+                        <Button x:Name="btnResetPassword" 
+                                Content="Сбросить пароль" 
+                                Height="48"
+                                Margin="0,0,0,20"
+                                Visibility="Collapsed"
+                                Click="btnResetPassword_Click"/>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Button x:Name="btnSave" 
+                                    Content="Сохранить" 
+                                    Grid.Column="0"
+                                    Height="48"
+                                    Margin="0,0,8,0"
+                                    Click="btnSave_Click"/>
+                            <Button x:Name="btnCancel" 
+                                    Content="Отмена" 
+                                    Grid.Column="1"
+                                    Height="48"
+                                    Margin="8,0,0,0"
+                                    Background="Transparent" 
+                                    Foreground="{DynamicResource PrimaryBrush}" 
+                                    BorderThickness="0"
+                                    Click="btnCancel_Click"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Page>

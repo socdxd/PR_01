@@ -1,0 +1,123 @@
+<Page x:Class="WPF_Payment_Project.Pages.ChangePassPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Смена пароля">
+    <Grid>
+        <Grid MaxWidth="480" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Margin="0,0,0,32">
+                <TextBlock Text="Смена пароля" 
+                           FontSize="28" 
+                           FontWeight="Bold" 
+                           HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Border Grid.Row="1" 
+                    Background="{DynamicResource SurfaceBrush}"
+                    CornerRadius="16"
+                    Padding="40">
+                <StackPanel>
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Логин" Margin="0,0,0,8"/>
+                        <Grid>
+                            <TextBox x:Name="txtLogin" 
+                                     Height="48"
+                                     TextChanged="txtLogin_TextChanged"
+                                     PreviewTextInput="txtLogin_PreviewTextInput"/>
+                            <TextBlock x:Name="lblLoginHint" 
+                                       Text="Введите логин" 
+                                       Foreground="Gray" 
+                                       IsHitTestVisible="False" 
+                                       VerticalAlignment="Center" 
+                                       Margin="12,0,0,0" 
+                                       Visibility="Visible"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,20">
+                        <Label Content="Текущий пароль" Margin="0,0,0,8"/>
+                        <Grid>
+                            <PasswordBox x:Name="txtOldPassword" 
+                                         Height="48"
+                                         PasswordChanged="txtOldPassword_PasswordChanged"/>
+                            <TextBlock x:Name="lblOldPassHint" 
+                                       Text="Введите текущий пароль" 
+                                       Foreground="Gray" 
+                                       IsHitTestVisible="False" 
+                                       VerticalAlignment="Center" 
+                                       Margin="12,0,0,0" 
+                                       Visibility="Visible"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <StackPanel Margin="0,0,0,4">
+                        <Label Content="Новый пароль" Margin="0,0,0,8"/>
+                        <Grid>
+                            <PasswordBox x:Name="txtNewPassword" 
+                                         Height="48"
+                                         PasswordChanged="txtNewPassword_PasswordChanged"/>
+                            <TextBlock x:Name="lblNewPassHint" 
+                                       Text="Введите новый пароль" 
+                                       Foreground="Gray" 
+                                       IsHitTestVisible="False" 
+                                       VerticalAlignment="Center" 
+                                       Margin="12,0,0,0" 
+                                       Visibility="Visible"/>
+                        </Grid>
+                    </StackPanel>
+                    <TextBlock x:Name="passwordStrength" 
+                               FontSize="11" 
+                               Margin="0,4,0,16" 
+                               Visibility="Collapsed"/>
+
+                    <StackPanel Margin="0,0,0,4">
+                        <Label Content="Подтвердите пароль" Margin="0,0,0,8"/>
+                        <Grid>
+                            <PasswordBox x:Name="txtConfirmPassword" 
+                                         Height="48"
+                                         PasswordChanged="txtConfirmPassword_PasswordChanged"/>
+                            <TextBlock x:Name="lblConfirmPassHint" 
+                                       Text="Повторите новый пароль" 
+                                       Foreground="Gray" 
+                                       IsHitTestVisible="False" 
+                                       VerticalAlignment="Center" 
+                                       Margin="12,0,0,0" 
+                                       Visibility="Visible"/>
+                        </Grid>
+                    </StackPanel>
+                    <TextBlock x:Name="passwordMatch" 
+                               FontSize="11" 
+                               Margin="0,4,0,32" 
+                               Visibility="Collapsed"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button x:Name="btnChangePassword" 
+                                Content="Сменить пароль" 
+                                Grid.Column="0"
+                                Height="48"
+                                Margin="0,0,8,0"
+                                Click="btnChangePassword_Click"/>
+                        <Button x:Name="btnCancel" 
+                                Content="Отмена" 
+                                Grid.Column="1"
+                                Height="48"
+                                Margin="8,0,0,0"
+                                Background="Transparent" 
+                                Foreground="{DynamicResource PrimaryBrush}" 
+                                BorderThickness="0"
+                                Click="btnCancel_Click"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
